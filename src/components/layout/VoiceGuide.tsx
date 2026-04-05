@@ -14,14 +14,14 @@ export function VoiceGuide({ stepId }: VoiceGuideProps) {
   const { play, isPlaying, text } = useVoiceGuide(stepId);
   const [isVisible, setIsVisible] = useState(true);
 
-  // Hide the guide box 3 seconds after the voice finishes playing
+  // Hide the guide box 2 seconds after the voice finishes playing
   useEffect(() => {
     if (isPlaying) {
       setIsVisible(true);
     } else {
       const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [isPlaying]);
