@@ -14,10 +14,37 @@ export function Menu() {
   const { categories, products } = useAdminStore();
   const { cart, setCurrentStep } = useUserStore();
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id);
+  const [idleTime, setIdleTime] = useState(0);
 
   useEffect(() => {
-    setCurrentStep('category');
-  }, [setCurrentStep]);
+    if (cart.length > 0) {
+      if (idleTime >= 10) {
+        setCurrentStep('category_idle');
+      } else {
+        setCurrentStep('category_with_items');
+      }
+    } else {
+      setCurrentStep('category');
+    }
+  }, [cart.length, idleTime, setCurrentStep]);
+
+  useEffect(() => {
+    if (cart.length === 0) return;
+
+    const timer = setInterval(() => {
+      setIdleTime((prev) => prev + 1);
+    }, 1000);
+
+    const resetIdleTime = () => setIdleTime(0);
+    window.addEventListener('click', resetIdleTime);
+    window.addEventListener('touchstart', resetIdleTime);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('click', resetIdleTime);
+      window.removeEventListener('touchstart', resetIdleTime);
+    };
+  }, [cart.length]);
 
   const filteredProducts = products.filter((p) => p.categoryId === activeCategory);
   const totalAmount = cart.reduce((sum, item) => sum + item.totalPrice, 0);
@@ -94,7 +121,7 @@ export function Menu() {
         </Button>
       </div>
 
-      <VoiceGuide stepId="category" />
+      <VoiceGuide stepId={cart.length > 0 ? (idleTime >= 10 ? 'category_idle' : 'category_with_items') : 'category'} />
     </div>
   );
 }

@@ -22,9 +22,15 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-8 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0 opacity-40 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=2000&auto=format&fit=crop")' }}
+      />
+      
       {/* Background decoration */}
-      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#6F3FF5] blur-[150px] opacity-20 rounded-full" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#B59BFF] blur-[150px] opacity-20 rounded-full" />
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#6F3FF5] blur-[150px] opacity-20 rounded-full z-0" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#B59BFF] blur-[150px] opacity-20 rounded-full z-0" />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -41,7 +47,7 @@ export function Home() {
         </h1>
         
         <p className="text-4xl text-[#D9D9D9] mb-24 leading-relaxed break-keep">
-          퍼플리프 커피 키오스크를<br />천천히 따라 하며 연습해보세요
+          '남양주시 커피 주문' 키오스크를<br />천천히 따라하며 연습해보세요.
         </p>
 
         <div className="flex flex-col gap-8 w-full max-w-2xl">

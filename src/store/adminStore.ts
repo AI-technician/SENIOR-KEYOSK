@@ -67,6 +67,7 @@ const defaultProducts: Product[] = [
   { id: 'p4', categoryId: 'c2', name: '돌체 라떼', description: '연유의 달콤함이 가득한 라떼', price: 5800, image: 'https://images.unsplash.com/photo-1551030173-122aabc4489c?w=400&h=400&fit=crop' },
   { id: 'p5', categoryId: 'c3', name: '카라멜 크림 프라페', description: '시원하고 달콤한 카라멜 얼음 음료', price: 6500, image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=400&fit=crop' },
   { id: 'p6', categoryId: 'c4', name: '유자 캐모마일 티', description: '상큼한 유자와 향긋한 캐모마일의 조화', price: 5000, image: 'https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=400&h=400&fit=crop' },
+  { id: 'p8', categoryId: 'c4', name: '녹차', description: '깔끔하고 부드러운 유기농 녹차', price: 3500, image: 'https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?w=400&h=400&fit=crop' },
   { id: 'p7', categoryId: 'c5', name: '블루베리 머핀', description: '상큼한 블루베리가 듬뿍 들어간 머핀', price: 3500, image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=400&fit=crop' },
 ];
 
@@ -80,6 +81,8 @@ const defaultVoiceScripts: VoiceScript[] = [
   { stepId: 'home', text: '어르신 키오스크 연습센터에 오신 것을 환영합니다. 화면 가운데에 있는 주문 연습 시작하기 버튼을 눌러주세요.' },
   { stepId: 'mode', text: '연습하실 모드를 선택해주세요. 처음이시라면 연습 모드를 추천합니다.' },
   { stepId: 'category', text: '왼쪽에서 원하시는 음료 종류를 선택하고, 오른쪽에서 음료를 골라주세요.' },
+  { stepId: 'category_with_items', text: '결제를 도와드리겠습니다. 결제를 하시려는 경우 하단의 결제하기 버튼을 눌러주세요.' },
+  { stepId: 'category_idle', text: '다른 메뉴를 추가혀려면 왼쪽에서 원하시는 음료 종류를 선택하고, 오른쪽에서 음료를 골라주세요.' },
   { stepId: 'product', text: '선택하신 음료의 온도와 크기를 선택해주세요. 다 고르셨다면 장바구니 담기 버튼을 눌러주세요.' },
   { stepId: 'cart', text: '장바구니에 담긴 음료를 확인해주세요. 맞다면 결제하기 버튼을 눌러주세요.' },
   { stepId: 'payment', text: '결제 방식을 선택해주세요. 카드로 결제하시려면 카드 결제를 눌러주세요.' },
