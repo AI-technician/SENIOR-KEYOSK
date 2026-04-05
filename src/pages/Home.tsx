@@ -25,7 +25,7 @@ export function Home() {
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0 opacity-40 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=2000&auto=format&fit=crop")' }}
+        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1559305616-3f99cd43e353?q=80&w=2000&auto=format&fit=crop")' }}
       />
       
       {/* Background decoration */}
@@ -39,15 +39,15 @@ export function Home() {
         className="z-10 flex flex-col items-center text-center max-w-4xl w-full"
       >
         <div className="w-48 h-48 bg-[#6F3FF5] rounded-full flex items-center justify-center mb-12 shadow-[0_0_60px_rgba(111,63,245,0.5)]">
-          <span className="text-white text-6xl font-bold">PL</span>
+          <span className="text-white text-6xl font-bold">NYJ</span>
         </div>
         
         <h1 className="text-7xl font-bold text-white mb-8 leading-tight break-keep">
-          어르신 키오스크<br />연습센터
+          남양주 어르신<br />키오스크 연습센터
         </h1>
         
         <p className="text-4xl text-[#D9D9D9] mb-24 leading-relaxed break-keep">
-          '남양주시 커피 주문' 키오스크를<br />천천히 따라하며 연습해보세요.
+          카페에서 키오스크로 음료를 주문하는 방법을<br />천천히 따라하며 연습해보세요.
         </p>
 
         <div className="flex flex-col gap-8 w-full max-w-2xl">

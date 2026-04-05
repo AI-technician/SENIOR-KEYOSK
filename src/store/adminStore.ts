@@ -48,6 +48,7 @@ interface AdminState {
   voiceScripts: VoiceScript[];
   settings: Settings;
   updateCategory: (id: string, name: string) => void;
+  addCategory: (name: string) => void;
   updateProduct: (id: string, updates: Partial<Product>) => void;
   updateSettings: (updates: Partial<Settings>) => void;
 }
@@ -106,6 +107,9 @@ export const useAdminStore = create<AdminState>()(
       },
       updateCategory: (id, name) => set((state) => ({
         categories: state.categories.map((c) => c.id === id ? { ...c, name } : c)
+      })),
+      addCategory: (name) => set((state) => ({
+        categories: [...state.categories, { id: `c${Date.now()}`, name }]
       })),
       updateProduct: (id, updates) => set((state) => ({
         products: state.products.map((p) => p.id === id ? { ...p, ...updates } : p)

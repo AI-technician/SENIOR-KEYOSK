@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { useAdminStore, Product } from '../../store/adminStore';
-import { Plus, Edit2, Trash2, Image as ImageIcon } from 'lucide-react';
+import { Plus, Edit2, Trash2, Image as ImageIcon, Check, X } from 'lucide-react';
 
 export function AdminMenu() {
-  const { categories, products, updateProduct } = useAdminStore();
+  const { categories, products, updateProduct, addCategory } = useAdminStore();
   const [activeTab, setActiveTab] = useState(categories[0]?.id);
+  const [isAddingCategory, setIsAddingCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState('');
 
   const filteredProducts = products.filter(p => p.categoryId === activeTab);
 
   const handleToggleSoldOut = (product: Product) => {
     updateProduct(product.id, { isSoldOut: !product.isSoldOut });
+  };
+
+  const handleAddCategory = () => {
+    if (newCategoryName.trim()) {
+      addCategory(newCategoryName.trim());
+      setNewCategoryName('');
+      setIsAddingCategory(false);
+    }
   };
 
   return (
@@ -27,7 +37,7 @@ export function AdminMenu() {
 
       {/* Tabs */}
       <div className="border-b border-gray-200">
-        <nav className="-mb-px flex space-x-8">
+        <nav className="-mb-px flex space-x-8 overflow-x-auto">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -42,6 +52,40 @@ export function AdminMenu() {
               {category.name}
             </button>
           ))}
+          
+          {isAddingCategory ? (
+            <div className="flex items-center pb-4 px-1">
+              <input
+                type="text"
+                value={newCategoryName}
+                onChange={(e) => setNewCategoryName(e.target.value)}
+                placeholder="카테고리명"
+                className="border border-gray-300 rounded-md px-2 py-1 text-sm w-24 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleAddCategory();
+                  if (e.key === 'Escape') {
+                    setIsAddingCategory(false);
+                    setNewCategoryName('');
+                  }
+                }}
+              />
+              <button onClick={handleAddCategory} className="ml-1 text-green-600 hover:text-green-700">
+                <Check size={16} />
+              </button>
+              <button onClick={() => { setIsAddingCategory(false); setNewCategoryName(''); }} className="ml-1 text-red-600 hover:text-red-700">
+                <X size={16} />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setIsAddingCategory(true)}
+              className="whitespace-nowrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm text-gray-400 hover:text-purple-600 flex items-center gap-1"
+            >
+              <Plus size={16} />
+              카테고리 추가
+            </button>
+          )}
         </nav>
       </div>
 
