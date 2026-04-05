@@ -38,10 +38,6 @@ export function Home() {
         transition={{ duration: 0.8 }}
         className="z-10 flex flex-col items-center text-center max-w-4xl w-full"
       >
-        <div className="w-48 h-48 bg-[#6F3FF5] rounded-full flex items-center justify-center mb-12 shadow-[0_0_60px_rgba(111,63,245,0.5)]">
-          <span className="text-white text-6xl font-bold">NYJ</span>
-        </div>
-        
         <h1 className="text-7xl font-bold text-white mb-8 leading-tight break-keep">
           남양주 어르신<br />키오스크 연습센터
         </h1>
