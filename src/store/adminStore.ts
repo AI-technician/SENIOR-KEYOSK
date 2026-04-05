@@ -47,6 +47,8 @@ interface AdminState {
   posts: Post[];
   voiceScripts: VoiceScript[];
   settings: Settings;
+  isAuthenticated: boolean;
+  setAuthenticated: (auth: boolean) => void;
   updateCategory: (id: string, name: string) => void;
   addCategory: (name: string) => void;
   updateProduct: (id: string, updates: Partial<Product>) => void;
@@ -79,7 +81,7 @@ const defaultPosts: Post[] = [
 ];
 
 const defaultVoiceScripts: VoiceScript[] = [
-  { stepId: 'home', text: '어르신 키오스크 연습센터에 오신 것을 환영합니다. 화면 가운데에 있는 주문 연습 시작하기 버튼을 눌러주세요.' },
+  { stepId: 'home', text: '남양주 어르신 키오스크 연습센터에 오신 것을 환영합니다. 화면 가운데에 있는 음성안내와 함께 시작하기 또는 조용히 연습 시작하기 중 하나를 선택하세요.' },
   { stepId: 'mode', text: '연습하실 모드를 선택해주세요. 처음이시라면 연습 모드를 추천합니다.' },
   { stepId: 'category', text: '왼쪽에서 원하시는 음료 종류를 선택하고, 오른쪽에서 음료를 골라주세요.' },
   { stepId: 'category_with_items', text: '결제를 도와드리겠습니다. 결제를 하시려는 경우 하단의 결제하기 버튼을 눌러주세요.' },
@@ -105,6 +107,8 @@ export const useAdminStore = create<AdminState>()(
         highContrast: false,
         buttonRadius: '1rem',
       },
+      isAuthenticated: false,
+      setAuthenticated: (auth) => set({ isAuthenticated: auth }),
       updateCategory: (id, name) => set((state) => ({
         categories: state.categories.map((c) => c.id === id ? { ...c, name } : c)
       })),

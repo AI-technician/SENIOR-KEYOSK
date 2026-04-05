@@ -46,8 +46,12 @@ export function Home() {
           남양주 어르신<br />키오스크 연습센터
         </h1>
         
-        <p className="text-4xl text-[#D9D9D9] mb-24 leading-relaxed break-keep">
+        <p className="text-4xl text-[#D9D9D9] mb-8 leading-relaxed break-keep">
           카페에서 키오스크로 음료를 주문하는 방법을<br />천천히 따라하며 연습해보세요.
+        </p>
+
+        <p className="text-2xl text-[#A0A0A0] mb-20 leading-relaxed break-keep">
+          「남양주시 스마트행정혁신 연구동아리」에서<br />제작한 웹사이트입니다. 누구나 이용 가능합니다.
         </p>
 
         <div className="flex flex-col gap-8 w-full max-w-2xl">
@@ -63,7 +67,7 @@ export function Home() {
             variant="outline"
             size="2xl"
             onClick={() => handleStart(false)}
-            className="w-full h-32 text-4xl border-4"
+            className="w-full h-32 text-4xl border-4 text-white"
           >
             조용히 연습 시작하기
           </Button>
