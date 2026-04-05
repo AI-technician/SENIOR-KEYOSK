@@ -68,14 +68,19 @@ export function Home() {
             조용히 연습 시작하기
           </Button>
 
-          <Button
-            variant="ghost"
-            size="lg"
-            onClick={() => navigate('/board')}
-            className="w-full h-20 text-2xl text-gray-400 hover:text-white"
-          >
-            공지사항 및 교육자료 보기
-          </Button>
+          <div className="flex flex-col items-center mt-4">
+            <p className="text-lg text-[#888888] mb-4 leading-relaxed break-keep">
+              ※ 메뉴 선택을 위해 보이는 화면은 데스크탑(PC)과 태블릿 PC 화면에 최적화되어 있습니다.
+            </p>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => navigate('/board')}
+              className="w-full h-20 text-2xl text-gray-400 hover:text-white"
+            >
+              공지사항 및 교육자료 보기
+            </Button>
+          </div>
         </div>
 
         <button
